@@ -157,7 +157,7 @@ export default class DaosList extends Component {
             <Link
               to={"/daos_display/" + dao._id}
               className="badge badge-warning"
-            ><td><img src={dao.logo_link} />{dao.full_name}</td>
+            ><td><img src={dao.logo_link} alt="dao logo" />{dao.full_name}</td>
 
             </Link>
             <td>{dao.category}</td>

@@ -60,12 +60,6 @@ export default class AddTutorial extends Component {
     });
   }
 
-  onChangeDescription(e) {
-    this.setState({
-      description: e.target.value
-    });
-  }
-
   onChangeFullName(e) {
     this.setState({
       full_name: e.target.value
