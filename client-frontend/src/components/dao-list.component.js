@@ -124,7 +124,7 @@ export default class DaosList extends Component {
       return DAO_Protocols.map((key, index) => {
 
         return <li>
-          <a
+          <span
             // type="submit"
             className=""
 
@@ -132,7 +132,7 @@ export default class DaosList extends Component {
             onClick={() => this.categoryFilter(key)}
           >
             {key}
-          </a>
+          </span>
         </li>
       })
     }

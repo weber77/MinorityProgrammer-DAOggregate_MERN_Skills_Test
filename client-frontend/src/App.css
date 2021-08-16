@@ -23,11 +23,17 @@
 
 }
 
-.category-link li a{
+.category-link li span{
   background-color: #DDD;  
   padding: 0.3rem 0.8rem;
   margin: 0 0.2rem;
   border-radius: 20px;
+  
+}
+
+.category-link li span :hover{
+  cursor: pointer;
+  
 }
 
 .search{
