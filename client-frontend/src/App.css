@@ -15,3 +15,39 @@
   max-width: 500px;
   margin: auto;
 }
+
+.category-link{
+  display:flex;
+  list-style: none;
+  padding: 0;
+
+}
+
+.category-link li a{
+  background-color: #DDD;  
+  padding: 0.3rem 0.8rem;
+  margin: 0 0.2rem;
+  border-radius: 20px;
+}
+
+.search{
+ position: relative;
+ 
+
+}
+
+.search .search-icon{
+  position: absolute;
+  z-index: 1;
+  top: 20%;
+  left: 1rem;
+  
+ }
+
+ .search input{
+  padding: 1rem 35px;
+  border-width: 0;
+  border-bottom-width: 1px;
+ }
+
+ 

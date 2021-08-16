@@ -3,7 +3,7 @@ import daoDataService from "../services/dao.service";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
-import { faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { faGlobe, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -112,10 +112,10 @@ export default class DaosList extends Component {
 
     let totalAUM = 0;
     for (let index = 0; index < daos.length; index++) {
-      
-        if(Number.isNaN(daos[index].AUM))
-          continue;
-        totalAUM += daos[index].AUM;
+
+      if (Number.isNaN(daos[index].AUM))
+        continue;
+      totalAUM += daos[index].AUM;
 
     }
 
@@ -123,15 +123,17 @@ export default class DaosList extends Component {
 
       return DAO_Protocols.map((key, index) => {
 
-        return <button
-          // type="submit"
-          className="badge badge-success"
+        return <li>
+          <a href="#"
+            // type="submit"
+            className=""
 
-          key={index}
-          onClick={() => this.categoryFilter(key)}
-        >
-          {key.toUpperCase()}
-        </button>
+            key={index}
+            onClick={() => this.categoryFilter(key)}
+          >
+            {key}
+          </a>
+        </li>
       })
     }
 
@@ -149,15 +151,14 @@ export default class DaosList extends Component {
         return (
 
           <tr className={
-            (index === currentIndex ? "active" : "")
+            (index === currentIndex ? "active my-3" : "my-3")
           }
-            // onClick={() => this.setActiveDao(dao, index)}
             key={index}
           >
             <Link
               to={"/daos_display/" + dao._id}
-              className="badge badge-warning"
-            ><td><img src={dao.logo_link} alt="dao logo" />{dao.full_name}</td>
+
+            ><td><img className="img mr-2 img-thumbnail d-inline-block" style={{ height: "32px", width: "32px" }} src={dao.logo_link} alt="dao logo" />{dao.full_name}</td>
 
             </Link>
             <td>{dao.category}</td>
@@ -173,23 +174,34 @@ export default class DaosList extends Component {
 
     return (
       <div className="list row">
-        <div className="col-md-8">
-          <div>
-            Number of DAOs <br />
-            {daos.length} <br /> 
-            from 84
+        <div className="col-md-12">
+          <div className="container-fluid my-4">
+            <div className="row shadow border">
+              <div className="col-md-6 p-3" >
+                Number of DAOs <br />
+                {daos.length} <br />
+                from 84
+              </div>
+              <div className="col-md-6 p-3 border-left">
+                Total AUM (USD) <br />
+                {totalAUM} <br />
+                from $3,152M
+              </div>
+            </div>
           </div>
+
           <div>
-            Total AUM (USD) <br />
-            {totalAUM} <br /> 
-            from $3,152M
+            <ul class="category-link">
+              {renderCategory()}
+            </ul>
           </div>
-          <div>
-            {renderCategory()}
-          </div>
-          <div className="input-group mb-3">
+
+          <div className="search input-group my-4">
 
 
+            <div className="search-icon"  >
+              <FontAwesomeIcon icon={faSearch} />
+            </div>
             <input
               type="text"
               className="form-control"
@@ -197,23 +209,17 @@ export default class DaosList extends Component {
               value={searchFilter}
               onChange={this.onChangeSearchTitle}
             />
-            <div className="input-group-append">
-              <button
-                className="btn btn-outline-secondary"
-                type="button"
-                onClick={this.searchFilter}
-              >
-                Search
-              </button>
-            </div>
+
+
           </div>
+
         </div>
-        <div className="col-md-6">
+        <div className="col-md-12">
 
           <h4>Daos List</h4>
 
 
-          <table >
+          <table className="table table-hover">
             <thead>
               <tr>{renderHeader()}</tr>
             </thead>
