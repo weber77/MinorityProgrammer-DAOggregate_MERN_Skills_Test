@@ -124,7 +124,7 @@ export default class DaosList extends Component {
       return DAO_Protocols.map((key, index) => {
 
         return <li>
-          <a href="#"
+          <a
             // type="submit"
             className=""
 
